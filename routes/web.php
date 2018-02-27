@@ -12,5 +12,9 @@
 */
 
 Route::get('/', function () {
-    return view('index');
+    return view('master.index');
 });
+
+
+Route::get('/master/centre/index','Master\CentreController@index')->name('master.centre.index');
+Route::get('/master/centre/create','Master\CentreController@create')->name('master.centre.create');
