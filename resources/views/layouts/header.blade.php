@@ -30,6 +30,14 @@
     <link href="{{asset('vendors/jqvmap/dist/jqvmap.min.css')}}" rel="stylesheet"/>
     <!-- bootstrap-daterangepicker -->
     <link href="{{asset('vendors/bootstrap-daterangepicker/daterangepicker.css')}}" rel="stylesheet">
+    <!-- bootstrap-wysiwyg -->
+    <link href="{{asset('vendors/google-code-prettify/bin/prettify.min.css')}}" rel="stylesheet">
+    <!-- Select2 -->
+    <link href="{{asset('vendors/select2/dist/css/select2.min.css')}}" rel="stylesheet">
+    <!-- Switchery -->
+    <link href="{{asset('vendors/switchery/dist/switchery.min.css')}}" rel="stylesheet">
+    <!-- starrr -->
+    <link href="{{asset('vendors/starrr/dist/starrr.css')}}" rel="stylesheet">
 
     <!-- Custom Theme Style -->
     <link href="{{asset('build/css/custom.min.css')}}" rel="stylesheet">

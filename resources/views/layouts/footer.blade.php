@@ -68,6 +68,24 @@
 <script src="{{asset('vendors/pdfmake/build/pdfmake.min.js')}}"></script>
 <script src="{{asset('vendors/pdfmake/build/vfs_fonts.js')}}"></script>
 
+<!-- bootstrap-wysiwyg -->
+<script src="{{asset('vendors/bootstrap-wysiwyg/js/bootstrap-wysiwyg.min.js')}}"></script>
+<script src="{{asset('vendors/jquery.hotkeys/jquery.hotkeys.js')}}"></script>
+<script src="{{asset('vendors/google-code-prettify/src/prettify.js')}}"></script>
+<!-- jQuery Tags Input -->
+<script src="{{asset('vendors/jquery.tagsinput/src/jquery.tagsinput.js')}}"></script>
+<!-- Switchery -->
+<script src="{{asset('vendors/switchery/dist/switchery.min.js')}}"></script>
+<!-- Select2 -->
+<script src="{{asset('vendors/select2/dist/js/select2.full.min.js')}}"></script>
+<!-- Parsley -->
+<script src="{{asset('vendors/parsleyjs/dist/parsley.min.js')}}"></script>
+<!-- Autosize -->
+<script src="{{asset('vendors/autosize/dist/autosize.min.js')}}"></script>
+<!-- jQuery autocomplete -->
+<script src="{{asset('vendors/devbridge-autocomplete/dist/jquery.autocomplete.min.js')}}"></script>
+<!-- starrr -->
+<script src="{{asset('vendors/starrr/dist/starrr.js')}}"></script>
 <!-- Custom Theme Scripts -->
 <script src="{{asset('build/js/custom.min.js')}}"></script>
 

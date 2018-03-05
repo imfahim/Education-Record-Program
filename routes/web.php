@@ -21,6 +21,13 @@ Route::get('/master/centre/create','Master\CentreController@create')->name('mast
 Route::delete('/master/centre/delete','Master\CentreController@delete')->name('master.centre.delete');
 Route::post('/master/centre/create','Master\CentreController@store');
 
+
+
+Route::get('/centre/student/index','Centre\StudentController@index')->name('centre.student.index');
+Route::get('/centre/student/create','Centre\StudentController@create')->name('centre.student.create');
+Route::get('/centre/professional/index','Centre\ProfessionalController@index')->name('centre.professional.index');
+
+
 Auth::routes();
 
 Route::get('/home', 'HomeController@index')->name('home');
