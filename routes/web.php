@@ -24,3 +24,9 @@ Route::post('/master/centre/create','Master\CentreController@store');
 Auth::routes();
 
 Route::get('/home', 'HomeController@index')->name('home');
+
+
+//Centre
+Route::get('/centre', function(){
+  return view('centre.index');
+});
