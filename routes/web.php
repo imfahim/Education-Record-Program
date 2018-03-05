@@ -18,3 +18,7 @@ Route::get('/', function () {
 
 Route::get('/master/centre/index','Master\CentreController@index')->name('master.centre.index');
 Route::get('/master/centre/create','Master\CentreController@create')->name('master.centre.create');
+
+Auth::routes();
+
+Route::get('/home', 'HomeController@index')->name('home');
