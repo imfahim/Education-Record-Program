@@ -38,25 +38,32 @@
                       <thead>
                         <tr>
                           <th>Name</th>
-                          <th>Position</th>
-                          <th>Office</th>
-                          <th>Age</th>
-                          <th>Start date</th>
-                          <th>Salary</th>
+                          <th>Email</th>
+                          <th>Phone</th>
+                          <th>Address</th>
+                          <th>Created At</th>
+                          <th>Option</th>
                         </tr>
                       </thead>
-
-
                       <tbody>
+                        @foreach($centres as $centre)
                         <tr>
-                          <td>Tiger Nixon</td>
-                          <td>System Architect</td>
-                          <td>Edinburgh</td>
-                          <td>61</td>
-                          <td>2011/04/25</td>
-                          <td>$320,800</td>
-                        </tr>
+                          <td>{{$centre->centre_name}}</td>
+                          <td>{{$centre->centre_email}} </td>
+                          <td>{{$centre->centre_phone}}</td>
+                          <td>{{$centre->centre_address}}</td>
+                          <td>{{$centre->created_at}}</td>
+                          <td>
+                            <form method="POST" action="{{route('master.centre.delete')}}">
+                              {{csrf_field()}}
+                              <input type="hidden" name="_method" value="delete"/>
+        											<input type="hidden" name="id" value="{{ $centre->centre_id }}"/>
+                            </form>
 
+                          <button type="button" class="btn btn-round btn-danger">Danger</button>
+                          </td>
+                        </tr>
+                        @endforeach
                       </tbody>
                     </table>
                   </div>
