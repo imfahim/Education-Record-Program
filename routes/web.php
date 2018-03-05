@@ -27,6 +27,8 @@ Route::get('/home', 'HomeController@index')->name('home');
 
 
 //Centre
-Route::get('/centre', function(){
-  return view('centre.index');
+Route::prefix('centre')->group(function () {
+  Route::get('/', 'Centre\HomeController')->name('centre.index');
+  Route::get('login', 'Centre\LoginController@index')->name('centre.login');
+  Route::post('login', 'Centre\LoginController@authenticate')->name('centre.authenticate');
 });
