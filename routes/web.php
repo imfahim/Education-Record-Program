@@ -25,10 +25,16 @@ Auth::routes();
 
 Route::get('/home', 'HomeController@index')->name('home');
 
-
-//Centre
-Route::prefix('centre')->group(function () {
+/*
+* For Centre-end - Every Centre view routes goes here
+*/
+Route::group(['prefix' => 'centre', 'middleware' => 'centre_auth'], function(){
   Route::get('/', 'Centre\HomeController@index')->name('centre.index');
   Route::get('login', 'Centre\LoginController@index')->name('centre.login');
   Route::post('login', 'Centre\LoginController@authenticate')->name('centre.authenticate');
+
+  Route::post('request/account', 'Centre\RequestController@account')->name('centre.request.account.send');
+  
+  // Tor routes goes here
+
 });

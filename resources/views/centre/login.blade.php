@@ -66,19 +66,34 @@
 
         <div id="register" class="animate form registration_form">
           <section class="login_content">
-            <form>
-              <h1>Create Account</h1>
+            <form method="POST" action="{{ route('centre.request.account.send') }}">
+              {{ csrf_field() }}
+              <h1>Request Account</h1>
               <div>
-                <input type="text" class="form-control" placeholder="Username" required="" />
+                <input type="text" class="form-control" placeholder="Name" name="name" required="" />
               </div>
               <div>
-                <input type="email" class="form-control" placeholder="Email" required="" />
+                <label>Select Type : </label>
+                <select class="form-control" name="type">
+                  <option value="0">Special School</option>
+                  <option value="1">Special Wing</option>
+                  <option value="2">Outreach</option>
+                  <option value="3">Individual</option>
+                  <option value="4">Organisation</option>
+                </select>
+              </div>
+              <br>
+              <div>
+                <input type="email" class="form-control" placeholder="Email" name="email" required="" />
               </div>
               <div>
-                <input type="password" class="form-control" placeholder="Password" required="" />
+                <input type="text" class="form-control" placeholder="Phone Number" name="phone" required="" />
               </div>
               <div>
-                <a class="btn btn-default submit" href="index.html">Submit</a>
+                <input type="text" class="form-control" placeholder="Address" name="address" required="" />
+              </div>
+              <div>
+                <input type="submit" class="btn btn-default submit" value="Submit" />
               </div>
 
               <div class="clearfix"></div>
@@ -92,8 +107,8 @@
                 <br />
 
                 <div>
-                  <h1><i class="fa fa-paw"></i> Gentelella Alela!</h1>
-                  <p>©2016 All Rights Reserved. Gentelella Alela! is a Bootstrap 3 template. Privacy and Terms</p>
+                  <h1><i class="fa fa-paw"></i> IEP</h1>
+                  <p>©2018 All Rights Reserved. Privacy and Terms</p>
                 </div>
               </div>
             </form>
