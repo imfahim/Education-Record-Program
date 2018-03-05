@@ -32,7 +32,7 @@ class CentreController extends Controller
 
     }
     public function delete(Request $request){
-      $flag=DB::table('centres')->where('centre_id',$request->id)->delete();
+      $flag=DB::table('centres')->where('centre_id','=',$request->id)->delete();
       if($flag){
         Session::flash('success', 'Successfully Deleted !');
       }

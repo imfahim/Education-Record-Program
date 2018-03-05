@@ -18,7 +18,7 @@ Route::get('/', function () {
 
 Route::get('/master/centre/index','Master\CentreController@index')->name('master.centre.index');
 Route::get('/master/centre/create','Master\CentreController@create')->name('master.centre.create');
-Route::post('/master/centre/delete','Master\CentreController@delete')->name('master.centre.delete');
+Route::delete('/master/centre/delete','Master\CentreController@delete')->name('master.centre.delete');
 Route::post('/master/centre/create','Master\CentreController@store');
 
 Auth::routes();

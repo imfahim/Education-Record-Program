@@ -58,9 +58,9 @@
                               {{csrf_field()}}
                               <input type="hidden" name="_method" value="delete"/>
         											<input type="hidden" name="id" value="{{ $centre->centre_id }}"/>
+                              <button type="submit" class="btn btn-round btn-danger">Delete</button>
                             </form>
 
-                          <button type="button" class="btn btn-round btn-danger">Danger</button>
                           </td>
                         </tr>
                         @endforeach
