@@ -34,31 +34,59 @@
                     <div class="clearfix"></div>
                   </div>
                   <div class="x_content">
-                    <table id="datatable" class="table table-striped table-bordered">
-                      <thead>
-                        <tr>
-                          <th>Name</th>
-                          <th>Position</th>
-                          <th>Office</th>
-                          <th>Age</th>
-                          <th>Start date</th>
-                          <th>Salary</th>
-                        </tr>
-                      </thead>
+                    @if($students)
+                      <table id="datatable" class="table table-striped table-bordered">
+                        <thead>
+                          <tr>
+                            <th>Name</th>
+                            <th>Student ID</th>
+                            <th>Added By</th>
+                            <th>Added At</th>
+                            <th>Options</th>
+                          </tr>
+                        </thead>
 
 
-                      <tbody>
-                        <tr>
-                          <td>Tiger Nixon</td>
-                          <td>System Architect</td>
-                          <td>Edinburgh</td>
-                          <td>61</td>
-                          <td>2011/04/25</td>
-                          <td>$320,800</td>
-                        </tr>
+                        <tbody>
+                          @foreach($students as $student)
+                            <tr>
+                              <td>{{ $student->firstname }} {{ $student->lastname }}</td>
+                              <td>{{ $student->student->studentid }}</td>
+                              <td>{{ $student->student->password }}</td>
+                              <td>{{ $student->created_at }}</td>
+                              <td>
+                                <div class="col-md-6">
+                                  <a href="#" class="btn btn-sm btn-primary">Show</a>
+                                </div>
+                                <div class="col-md-6">
+                                  @if($student->student->status === 0)
+                                    <form action="{{ route('centre.student.destroy', [$student->student->id]) }}" method="POST">
+                                      {{ csrf_field() }}
+                                      <input type="hidden" name="_method" value="delete" />
+                                      <input type="hidden" name="command" value="deactivate" />
+                                      <input type="submit" class="btn btn-sm btn-danger" value="Deactivate" />
+                                    </form>
+                                  @else
+                                    <form action="{{ route('centre.student.destroy', [$student->student->id]) }}" method="POST">
+                                      {{ csrf_field() }}
+                                      <input type="hidden" name="_method" value="delete" />
+                                      <input type="hidden" name="command" value="activate" />
+                                      <input type="submit" class="btn btn-sm btn-success" value="Activate" />
+                                    </form>
+                                  @endif
 
-                      </tbody>
-                    </table>
+                                </div>
+                              </td>
+                            </tr>
+                          @endforeach
+                        </tbody>
+                      </table>
+                    @else
+                      <div class="well">
+                        <center>No Students Yet !</center>
+                      </div>
+                    @endif
+
                   </div>
                 </div>
               </div>

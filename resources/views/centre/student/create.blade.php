@@ -21,7 +21,7 @@
                   </div>
                   <div class="x_content">
 
-                    <form class="form-horizontal form-label-left" novalidate method="POST">
+                    <form class="form-horizontal form-label-left" novalidate method="POST" action="{{ route('centre.student.store') }}">
                       {{csrf_field()}}
                       <span class="section">Student Info</span>
 
@@ -56,7 +56,7 @@
                       <div class="item form-group">
                         <label class="control-label col-md-3 col-sm-3 col-xs-12">Date Of Birth</label>
                         <div class="col-md-6 col-sm-6 col-xs-12">
-                            <input class="form-control has-feedback-left" id="single_cal2" placeholder="First Name" aria-describedby="inputSuccess2Status2" type="text">
+                            <input class="form-control has-feedback-left" id="single_cal2" placeholder="First Name" aria-describedby="inputSuccess2Status2" type="text" name="dob">
                             <span class="fa fa-calendar-o form-control-feedback left" aria-hidden="true"></span>
                             <span id="inputSuccess2Status2" class="sr-only">(success)</span>
 
@@ -82,14 +82,14 @@
                         </div>
                       </div>
                       <div class="item form-group">
-                        <label class="control-label col-md-3 col-sm-3 col-xs-12" for="email">Class/Section
+                        <label class="control-label col-md-3 col-sm-3 col-xs-12" for="class">Class/Section
                         </label>
                         <div class="col-md-6 col-sm-6 col-xs-12">
                           <input name="class" class="form-control col-md-7 col-xs-12"placeholder="if applicable" type="text">
                         </div>
                       </div>
                       <div class="item form-group">
-                        <label class="control-label col-md-3 col-sm-3 col-xs-12" for="email">Identified Interests
+                        <label class="control-label col-md-3 col-sm-3 col-xs-12" for="interests">Identified Interests
                         </label>
                         <div class="col-md-6 col-sm-6 col-xs-12">
                           <input name="interests" class="form-control col-md-7 col-xs-12" placeholder="(tags) Singing," type="text">
@@ -97,14 +97,14 @@
                       </div>
 
                       <div class="item form-group">
-                        <label class="control-label col-md-3 col-sm-3 col-xs-12" for="email">Associated Condition
+                        <label class="control-label col-md-3 col-sm-3 col-xs-12" for="condition">Associated Condition
                         </label>
                         <div class="col-md-6 col-sm-6 col-xs-12">
                           <input name="condition" class="form-control col-md-7 col-xs-12"placeholder="tags" type="text">
                         </div>
                       </div>
                       <div class="item form-group">
-                        <label class="control-label col-md-3 col-sm-3 col-xs-12" for="email">Status
+                        <label class="control-label col-md-3 col-sm-3 col-xs-12" for="status">Status
                         </label>
                         <div class="col-md-6 col-sm-6 col-xs-12">
                           <input type="radio" class="flat" name="status" id="mild" value="mild" checked="" required />&nbsp;Mild
@@ -135,19 +135,19 @@
                       </div>
                       <div class="col-md-6">
                       <div class="item form-group">
-                        <label class="control-label col-md-6 col-sm-6 col-xs-12" for="email">Height
+                        <label class="control-label col-md-6 col-sm-6 col-xs-12" for="height">Height
                         </label>
                         <div class="col-md-6 col-sm-6 col-xs-12">
-                          <input name="condition" class="form-control col-md-7 col-xs-12"placeholder="In Inch" type="text">
+                          <input name="height" class="form-control col-md-7 col-xs-12"placeholder="In Inch" type="text">
                         </div>
                       </div>
                     </div>
                     <div class="col-md-6">
                       <div class="item form-group">
-                        <label class="control-label col-md-1 col-sm-1 col-xs-12" for="email">Weight
+                        <label class="control-label col-md-1 col-sm-1 col-xs-12" for="weight">Weight
                         </label>
                         <div class="col-md-5 col-sm-5 col-xs-12">
-                          <input name="condition" class="form-control col-md-7 col-xs-12"placeholder="In kg" type="text">
+                          <input name="weight" class="form-control col-md-7 col-xs-12"placeholder="In kg" type="text">
                         </div>
                       </div>
                     </div>
@@ -186,10 +186,10 @@
                   </div>
                   <div class="col-md-6">
                     <div class="item form-group">
-                      <label class="control-label col-md-1 col-sm-1 col-xs-12" for="email">IQ test Date
+                      <label class="control-label col-md-1 col-sm-1 col-xs-12" for="iq_date">IQ test Date
                       </label>
                       <div class="col-md-5 col-sm-5 col-xs-12">
-                        <input type="text" class="form-control has-feedback-left" id="single_cal4" placeholder="First Name" aria-describedby="inputSuccess2Status4">
+                        <input type="text" class="form-control has-feedback-left" id="single_cal4" placeholder="First Name" aria-describedby="inputSuccess2Status4" name="iq_date">
                           <span class="fa fa-calendar-o form-control-feedback left" aria-hidden="true"></span>
                           <span id="inputSuccess2Status4" class="sr-only">(success)</span>
                       </div>
@@ -215,10 +215,10 @@
                 </div>
                 <div class="col-md-6">
                   <div class="item form-group">
-                    <label class="control-label col-md-1 col-sm-1 col-xs-12" for="email">SQ test Date
+                    <label class="control-label col-md-1 col-sm-1 col-xs-12" for="sq_date">SQ test Date
                     </label>
                     <div class="col-md-5 col-sm-5 col-xs-12">
-                      <input type="text" class="form-control has-feedback-left" id="single_cal3" placeholder="First Name" aria-describedby="inputSuccess2Status3">
+                      <input type="text" class="form-control has-feedback-left" id="single_cal3" placeholder="First Name" aria-describedby="inputSuccess2Status3" name="sq_date">
                       <span class="fa fa-calendar-o form-control-feedback left" aria-hidden="true"></span>
                       <span id="inputSuccess2Status3" class="sr-only">(success)</span>
                     </div>
@@ -272,6 +272,34 @@
                   </label>
                   <div class="col-md-6 col-sm-6 col-xs-12">
                     <input type="email"  name="motheremail" class="form-control col-md-7 col-xs-12">
+                  </div>
+                </div>
+
+                <hr>
+                <div class="item form-group">
+                  <h4 class="col-md-6 col-sm-6 col-xs-12">Account Details</h4>
+                </div>
+                <div class="item form-group">
+                  <label class="control-label col-md-3 col-sm-3 col-xs-12" for="stdid">Student ID
+                  </label>
+                  <div class="col-md-6 col-sm-6 col-xs-12">
+                    <input type="text"  name="stdid" class="form-control col-md-7 col-xs-12">
+                  </div>
+                </div>
+
+                <div class="item form-group">
+                  <label class="control-label col-md-3 col-sm-3 col-xs-12" for="password">Password
+                  </label>
+                  <div class="col-md-6 col-sm-6 col-xs-12">
+                    <input type="password"  name="password" class="form-control col-md-7 col-xs-12">
+                  </div>
+                </div>
+
+                <div class="item form-group">
+                  <label class="control-label col-md-3 col-sm-3 col-xs-12" for="repassword">Re-type Password
+                  </label>
+                  <div class="col-md-6 col-sm-6 col-xs-12">
+                    <input type="password"  name="repassword" class="form-control col-md-7 col-xs-12">
                   </div>
                 </div>
 

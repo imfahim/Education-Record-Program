@@ -6,6 +6,7 @@ use Illuminate\Http\Request;
 use App\Http\Controllers\Controller;
 
 use Hash;
+use Session;
 
 use App\Centre;
 
@@ -38,12 +39,13 @@ class LoginController extends Controller
     protected function attemptLogin(Request $request)
     {
 
-        $found = Centre::where('centre_email', $request->centre_email)->get(['centre_email', 'centre_password']);
+        $found = Centre::where('centre_email', $request->centre_email)->get(['centre_id', 'centre_email', 'centre_password']);
 
         //dd($found[0]);
         if($found){
           $pass_checked = Hash::check($request->centre_password, $found[0]->centre_password, []);
           if($pass_checked){
+            Session::put('logged_in', $found[0]->centre_id);
             return true;
           }else{
             return false;
