@@ -26,6 +26,13 @@ Route::post('/master/centre/create','Master\CentreController@store');
 Route::get('/centre/student/index','Centre\StudentController@index')->name('centre.student.index');
 Route::get('/centre/student/create','Centre\StudentController@create')->name('centre.student.create');
 Route::get('/centre/professional/index','Centre\ProfessionalController@index')->name('centre.professional.index');
+Route::get('/centre/professional/create','Centre\ProfessionalController@create')->name('centre.professional.create');
+Route::get('/centre/professional/add-student','Centre\ProfessionalController@add_student')->name('centre.professional.add_student');
+Route::delete('/centre/professional/delete','Centre\ProfessionalController@delete')->name('centre.professional.delete');
+
+Route::post('/centre/professional/create','Centre\ProfessionalController@store');
+
+
 
 
 Auth::routes();
@@ -41,7 +48,7 @@ Route::group(['prefix' => 'centre', 'middleware' => 'centre_auth'], function(){
   Route::post('login', 'Centre\LoginController@authenticate')->name('centre.authenticate');
 
   Route::post('request/account', 'Centre\RequestController@account')->name('centre.request.account.send');
-  
+
   // Tor routes goes here
 
 });
