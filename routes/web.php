@@ -57,3 +57,4 @@ Route::group(['prefix' => 'centre', 'middleware' => 'centre_auth'], function(){
 
 //Student
 Route::get('/student/iep', 'Student\RecordController@iep')->name('student.record.iep');
+Route::get('/student/profile', 'Student\ProfileController@index')->name('student.profile');

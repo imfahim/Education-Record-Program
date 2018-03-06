@@ -18,6 +18,7 @@
                   <li><a href="{{route('centre.professional.index')}}"><i class="fa fa-users"> </i>Professionals</a>
                   </li>
 
+
                 </ul>
               </div>
           <!--    <div class="menu_section">
