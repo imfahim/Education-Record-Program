@@ -2,7 +2,7 @@
             <!-- sidebar menu -->
             <div id="sidebar-menu" class="main_menu_side hidden-print main_menu">
               <div class="menu_section">
-                <h3>General</h3>
+                <h3>Student</h3>
                 <ul class="nav side-menu">
 
                   @if(Session::get('type')=='master')
@@ -17,7 +17,6 @@
                   </li>
                   <li><a href="{{route('centre.professional.index')}}"><i class="fa fa-users"> </i>Professionals</a>
                   </li>
-
 
                 </ul>
               </div>

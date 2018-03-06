@@ -45,3 +45,7 @@ Route::group(['prefix' => 'centre', 'middleware' => 'centre_auth'], function(){
   // Tor routes goes here
 
 });
+
+
+//Student
+Route::get('/student/iep', 'Student\RecordController@iep')->name('student.record.iep');
