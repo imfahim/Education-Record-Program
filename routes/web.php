@@ -35,6 +35,15 @@ Route::post('/centre/professional/create','Centre\ProfessionalController@store')
 
 
 
+Route::get('/professional','Professional\LoginController@login')->name('professional.login');
+Route::get('/professional/index','Professional\LoginController@index')->name('professional.index');
+Route::post('/professional/auth', 'Professional\LoginController@authenticate')->name('professional.authenticate');
+Route::get('/professional/students','Professional\StudentController@index')->name('professional.student.index');
+Route::post('/professional/students/search','Professional\StudentController@search')->name('professional.student.search');
+Route::post('/professional/students/request','Professional\StudentController@req')->name('professional.student.request');
+
+
+
 
 Auth::routes();
 

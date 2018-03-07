@@ -17,6 +17,12 @@
                   </li>
                   <li><a href="{{route('centre.professional.index')}}"><i class="fa fa-users"> </i>Professionals</a>
                   </li>
+                  @if(Session::get('type')=='professional')
+                  <li><a href="/"><i class="fa fa-home"></i> Home <!--<span class="fa fa-chevron-down">--></span></a>
+                  </li>
+                  <li><a href="{{route('professional.student.index')}}"><i class="fa fa-graduation-cap"></i>Students</a>
+                  </li>
+                  @endif
 
 
                 </ul>
