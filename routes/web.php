@@ -26,7 +26,9 @@ Route::post('/master/centre/create','Master\CentreController@store');
 
 Route::get('/centre/professional/index','Centre\ProfessionalController@index')->name('centre.professional.index');
 Route::get('/centre/professional/create','Centre\ProfessionalController@create')->name('centre.professional.create');
-Route::get('/centre/professional/add-student','Centre\ProfessionalController@add_student')->name('centre.professional.add_student');
+Route::get('/centre/professional/assign/in/{id}','Centre\ProfessionalController@assign')->name('centre.professional.assign');
+Route::post('/centre/professional/assign/search', 'Centre\ProfessionalController@search')->name('centre.professional.assign.search');
+Route::get('/centre/professional/assign/{prof_id}/{std_id}', 'Centre\ProfessionalController@attemptAssign')->name('centre.professional.assign.attempt');
 Route::delete('/centre/professional/delete','Centre\ProfessionalController@delete')->name('centre.professional.delete');
 
 Route::post('/centre/professional/create','Centre\ProfessionalController@store');

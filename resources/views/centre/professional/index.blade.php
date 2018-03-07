@@ -76,10 +76,10 @@
                           </td>
                           <td>
                         <div class="col-md-3">
-                          <a href="{{route('centre.professional.add_student')}}" class="btn btn-round btn-xs btn-info">Details</a>
+                          <a href="#" class="btn btn-round btn-xs btn-info">Details</a>
                         </div>
                         <div class="col-md-2">
-                            <a href="{{route('centre.professional.add_student')}}" class="btn btn-round btn-xs btn-success">Add Student</a>
+                            <a href="{{route('centre.professional.assign', [$prof->id])}}" class="btn btn-round btn-xs btn-success">Assign Students</a>
                           </div>
                         </td>
                         </tr>
