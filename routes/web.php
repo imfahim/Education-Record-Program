@@ -67,3 +67,8 @@ Route::group(['prefix' => 'student'], function(){
 //Student
 Route::get('/student/iep', 'Student\RecordController@iep')->name('student.record.iep');
 Route::get('/student/profile', 'Student\ProfileController@index')->name('student.profile');
+
+
+Route::get('/professional/profile', function () {
+    return view('professional.profile');
+});
