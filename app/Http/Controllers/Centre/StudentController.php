@@ -143,12 +143,26 @@ class StudentController extends Controller
      */
     public function destroy(Request $request, $id)
     {
-        $student = Student::find($id);
 
-        $student->status = 1;
+        if($request->command === 'activate'){
+          $student = Student::find($id);
 
-        $student->save();
+          $student->status = 0;
 
-        return redirect()->back();
+          $student->save();
+
+          return redirect()->back();
+        }
+
+        if($request->command === 'deactivate'){
+          $student = Student::find($id);
+
+          $student->status = 1;
+
+          $student->save();
+
+          return redirect()->back();
+        }
+
     }
 }
