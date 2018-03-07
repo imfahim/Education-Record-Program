@@ -1,6 +1,6 @@
 <?php
 
-namespace App\Http\Controllers\Centre;
+namespace App\Http\Controllers\Student;
 
 use Illuminate\Http\Request;
 use App\Http\Controllers\Controller;
@@ -8,13 +8,13 @@ use App\Http\Controllers\Controller;
 use Hash;
 use Session;
 
-use App\Centre;
+use App\Student;
 
 class LoginController extends Controller
 {
     public function index()
     {
-       return view('centre.login');
+       return view('student.login');
     }
 
     public function authenticate(Request $request)
@@ -24,10 +24,10 @@ class LoginController extends Controller
         if ($this->attemptLogin($request)) {
             $request->session()->regenerate();
 
-            return redirect()->route('centre.index');
+            return redirect()->route('student.index');
         }
 
-        return redirect()->route('centre.login');
+        return redirect()->route('student.login');
     }
 
     /**
@@ -39,14 +39,14 @@ class LoginController extends Controller
     protected function attemptLogin(Request $request)
     {
 
-        $found = Centre::where('centre_email', $request->centre_email)->get(['centre_id', 'centre_email', 'centre_password']);
+        $found = Student::where('studentid', $request->stdid)->get(['id', 'studentid', 'password']);
 
         //dd($found[0]);
         if($found){
-          $pass_checked = Hash::check($request->centre_password, $found[0]->centre_password, []);
+          $pass_checked = Hash::check($request->password, $found[0]->password, []);
           if($pass_checked){
-            Session::put('logged_in', $found[0]->centre_id);
-            Session::put('type', 'centre');
+            Session::put('logged_in', $found[0]->id);
+            Session::put('type', 'student');
             return true;
           }else{
             return false;
@@ -67,7 +67,7 @@ class LoginController extends Controller
     {
         $this->validate($request, [
             $this->username() => 'required|string',
-            'centre_password' => 'required|string',
+            'password' => 'required|string',
         ]);
     }
 
@@ -78,7 +78,6 @@ class LoginController extends Controller
      */
     public function username()
     {
-        return 'centre_email';
+        return 'stdid';
     }
-
 }

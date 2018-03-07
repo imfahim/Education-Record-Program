@@ -4,6 +4,14 @@
 
         <!-- page content -->
         <div class="right_col" role="main">
+
+          <!-- Logout Form -->
+          <form method="POST" action="{{ route('global.logout') }}">
+            {{ csrf_field() }}
+            <input type="hidden" name="type" value="{{ Session::get('type') }}" />
+            <input type="submit" class="btn btn-danger" value="logout" />
+          </form>
+
           <!-- top tiles -->
           <div class="row tile_count">
             <div class="col-md-2 col-sm-4 col-xs-6 tile_stats_count">

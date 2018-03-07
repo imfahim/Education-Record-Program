@@ -36,6 +36,8 @@ Route::post('/centre/professional/create','Centre\ProfessionalController@store')
 
 Auth::routes();
 
+Route::post('/global/logout', 'LogoutController@logout')->name('global.logout');
+
 Route::get('/home', 'HomeController@index')->name('home');
 
 /*
@@ -52,6 +54,13 @@ Route::group(['prefix' => 'centre', 'middleware' => 'centre_auth'], function(){
 
   // Tor routes goes here
 
+});
+
+Route::group(['prefix' => 'student'], function(){
+  Route::get('login', 'Student\LoginController@index')->name('student.login');
+  Route::post('login', 'Student\LoginController@authenticate')->name('student.authenticate');
+
+  Route::get('/', 'Student\HomeController@index')->name('student.index');
 });
 
 

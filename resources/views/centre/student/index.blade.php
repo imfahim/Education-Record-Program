@@ -56,7 +56,7 @@
                               <td>{{ $student->created_at }}</td>
                               <td>
                                 <div class="col-md-6">
-                                  <a href="#" class="btn btn-sm btn-primary">Show</a>
+                                  <a href="{{ route('centre.student.show', [$student->id]) }}" class="btn btn-sm btn-primary">Show</a>
                                 </div>
                                 <div class="col-md-6">
                                   @if($student->student->status === 0)

@@ -109,7 +109,11 @@ class StudentController extends Controller
      */
     public function show($id)
     {
-        //
+        $student_detail = StudentDetail::with('student')->where('id', $id)->first();
+        //dd($student_detail);
+        $date = explode('-', $student_detail->dob);
+        $age = Carbon::createFromDate($date[0], $date[1], $date[2])->diff(Carbon::now())->format('%y years, %m months and %d days');
+        return view('centre.student.show')->with('student_details', $student_detail)->with('age', $age);
     }
 
     /**
