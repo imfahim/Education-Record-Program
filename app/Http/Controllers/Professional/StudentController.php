@@ -11,7 +11,9 @@ class StudentController extends Controller
 {
     //
     public function index(){
-      return view('professional.student.index');
+      $students =DB::table('student_details')->join('students','student_details.student_id','=','students.id')->join('rel_students_professionals','student_details.student_id','=','rel_students_professionals.student_id')->where('rel_students_professionals.professional_id','=',Session::get('id'))->get();
+      //dd($students);
+      return view('professional.student.index')->withStudents($students);
     }
 
     public function search(Request $request){

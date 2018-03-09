@@ -95,7 +95,13 @@ class ProfessionalController extends Controller
 
       // Check Reuqest is accepted or not
 
+
       // if accepted
+      $exist=DB::table('rel_students_professionals')->where('professional_id',$prof_id)->where('student_id',$std_id)->first();
+      if(count($exist)){
+        Session::flash('fail', 'Error Occured !');
+      }
+      else{
       $flag = DB::table('rel_students_professionals')->insert([
         'professional_id' => $prof_id,
         'student_id' => $std_id,
@@ -106,7 +112,7 @@ class ProfessionalController extends Controller
       }else{
         Session::flash('fail', 'Error Occured !');
       }
-
+      }
       return redirect()->back();
       //////
 
@@ -119,6 +125,7 @@ class ProfessionalController extends Controller
       if($students){
         Session::put('students', $students);
         Session::flash('success', 'Successfully Found !');
+        //dd($students);
         return redirect()->back();
       }
       Session::flash('fail', 'Could not Found !');

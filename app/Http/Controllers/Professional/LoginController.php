@@ -22,6 +22,7 @@ class LoginController extends Controller
 
     public function authenticate(Request $request){
       $prof=DB::table('professionals')->where('email',$request->email)->where('password',$request->password)->where('status',0)->first();
+      
       if(count($prof)==1){
         Session::put('success','Logged In Successfully');
         Session::put('type','professional');

@@ -77,7 +77,7 @@
                                 </p>
                               </div>
                               <div class="col-xs-12 col-sm-6 emphasis">
-                                  <a href="{{ route('centre.professional.assign.attempt', [$professional->id, $student->studentdetail->id]) }}" type="button" class="btn btn-success btn-xs"> <i class="fa fa-user">
+                                  <a href="{{ route('centre.professional.assign.attempt', [$professional->id, $student->studentdetail->student_id]) }}" type="button" class="btn btn-success btn-xs"> <i class="fa fa-user">
                                   </i> <i class="fa fa-plus"></i> </a>
                                 <a href="{{ route('centre.student.show', [$student->studentdetail->id]) }}" target="_blank" type="button" class="btn btn-primary btn-xs">
                                   <i class="fa fa-user"> </i> View Profile
