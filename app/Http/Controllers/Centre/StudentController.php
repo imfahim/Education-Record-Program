@@ -10,7 +10,7 @@ use Carbon\Carbon;
 
 use App\Student;
 use App\StudentDetail;
-
+use Illuminate\Support\Facades\DB;
 
 
 class StudentController extends Controller
@@ -25,7 +25,9 @@ class StudentController extends Controller
         //$students = StudentDetail::with('student')->with('centre')->get();
         $students = StudentDetail::with('student')->get();
 
-        return view('centre.student.index')->with('students', $students);
+        $professionals = DB::table('rel_students_professionals')->join('professional_details','rel_students_professionals.professional_id','=','professional_details.prof_id')->get();
+        //dd($professionals);
+        return view('centre.student.index')->with('students', $students)->withProfs($professionals);
     }
 
     /**

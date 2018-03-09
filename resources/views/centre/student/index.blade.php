@@ -33,61 +33,84 @@
                     </ul>
                     <div class="clearfix"></div>
                   </div>
-                  <div class="x_content">
-                    @if($students)
-                      <table id="datatable" class="table table-striped table-bordered">
-                        <thead>
-                          <tr>
-                            <th>Name</th>
-                            <th>Student ID</th>
-                            <th>Added By</th>
-                            <th>Added At</th>
-                            <th>Options</th>
-                          </tr>
-                        </thead>
 
 
-                        <tbody>
-                          @foreach($students as $student)
-                            <tr>
-                              <td>{{ $student->firstname }} {{ $student->lastname }}</td>
-                              <td>{{ $student->student->studentid }}</td>
-                              <td>{{ $student->student->password }}</td>
-                              <td>{{ $student->created_at }}</td>
-                              <td>
-                                <div class="col-md-6">
-                                  <a href="{{ route('centre.student.show', [$student->id]) }}" class="btn btn-sm btn-primary">Show</a>
-                                </div>
-                                <div class="col-md-6">
-                                  @if($student->student->status === 0)
-                                    <form action="{{ route('centre.student.destroy', [$student->student->id]) }}" method="POST">
-                                      {{ csrf_field() }}
-                                      <input type="hidden" name="_method" value="delete" />
-                                      <input type="hidden" name="command" value="deactivate" />
-                                      <input type="submit" class="btn btn-sm btn-danger" value="Deactivate" />
-                                    </form>
-                                  @else
-                                    <form action="{{ route('centre.student.destroy', [$student->student->id]) }}" method="POST">
-                                      {{ csrf_field() }}
-                                      <input type="hidden" name="_method" value="delete" />
-                                      <input type="hidden" name="command" value="activate" />
-                                      <input type="submit" class="btn btn-sm btn-success" value="Activate" />
-                                    </form>
-                                  @endif
+                <!-- start project list -->
+                    <table class="table table-striped projects">
+                      <thead>
+                        <tr>
+                          <th style="width: 1%">#</th>
+                          <th style="width: 20%">Student Name</th>
+                          <th>Professionals</th>
+                          <th>IEP Progress</th>
+                          <th>Status</th>
+                          <th style="width: 20%">Option</th>
+                        </tr>
+                      </thead>
+                      <tbody>
+                        @foreach($students as $student)
+                        <tr>
+                          <td>#</td>
+                          <td>
+                            <a>{{$student->firstname}} {{$student->lastname}}</a>
+                            <br />
+                            <small>Created 01.01.2015</small>
+                          </td>
+                          <td>
+                            <ul class="list-inline">
+                              @foreach($profs as $pro)
+                              @if($pro->student_id == $student->student_id)
+                              <li>
+                                <img src="{{asset('images/user.png')}}" class="avatar" alt="Avatar" href="#"><br>{{$pro->fname}} {{$pro->lname}}
+                              </li>
+                              @endif
+                              @endforeach
+                            </ul>
+                          </td>
+                          <td class="project_progress">
+                            <div class="progress progress_sm">
+                              <div class="progress-bar bg-green" role="progressbar" data-transitiongoal="57"></div>
+                            </div>
+                            <small>57% Complete</small>
+                          </td>
+                          <td>
+                            <button type="button" class="btn btn-success btn-xs">Success</button>
+                          </td>
+                          <td>
+                            <div class="row">
+                              <div class="col-md-3">
+                            <a href="{{ route('centre.student.show', [$student->id]) }}" class="btn btn-primary btn-xs"><i class="fa fa-folder"></i> View</a>
+                          </div>
+                          <div class="col-md-3">
+                            <a href="#" class="btn btn-info btn-xs"><i class="fa fa-pencil"></i> IEP </a>
+                          </div>
+                          <div class="col-md-4">
+                            @if($student->student->status === 0)
+                              <form action="{{ route('centre.student.destroy', [$student->student->id]) }}" method="POST">
+                                {{ csrf_field() }}
+                                <input type="hidden" name="_method" value="delete" />
+                                <input type="hidden" name="command" value="deactivate" />
+                                <input type="submit" class="btn btn-sm btn-danger" value="Deactivate" />
+                              </form>
+                            @else
+                              <form action="{{ route('centre.student.destroy', [$student->student->id]) }}" method="POST">
+                                {{ csrf_field() }}
+                                <input type="hidden" name="_method" value="delete" />
+                                <input type="hidden" name="command" value="activate" />
+                                <input type="submit" class="btn btn-sm btn-success" value="Activate" />
+                              </form>
+                            @endif
+                          </div>
+                          </div>
+                          </td>
+                        </tr>
+                        @endforeach
+                      </tbody>
+                    </table>
+                    <!-- end project list -->
 
-                                </div>
-                              </td>
-                            </tr>
-                          @endforeach
-                        </tbody>
-                      </table>
-                    @else
-                      <div class="well">
-                        <center>No Students Yet !</center>
-                      </div>
-                    @endif
 
-                  </div>
+
                 </div>
               </div>
             </div>
