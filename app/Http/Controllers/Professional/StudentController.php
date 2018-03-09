@@ -16,6 +16,10 @@ class StudentController extends Controller
       return view('professional.student.index')->withStudents($students);
     }
 
+    public function iep_report(){
+      return view('professional.student.iep');
+    }
+
     public function search(Request $request){
       $students=DB::table('student_details')->where('firstname','LIKE','%'.$request->search.'%')->OrWhere('lastname','LIKE','%'.$request->search.'%')->get();
       $listed=DB::table('prof_req')->where('prof_id',Session::get('id'))->get();
