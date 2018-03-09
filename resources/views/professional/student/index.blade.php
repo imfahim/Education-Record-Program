@@ -61,7 +61,7 @@
                           </p>
                         </div>
                         <div class="col-xs-12 col-sm-6 emphasis">
-                            <a href="#" type="button" class="btn btn-success btn-xs"> IEP </a>
+                            <a href="{{route('professional.student.iep')}}" type="button" class="btn btn-success btn-xs"> IEP </a>
                           <a href="{{ route('centre.student.show', [$student->student_id]) }}" target="_blank" type="button" class="btn btn-primary btn-xs">
                             <!-- Button a Error cz student id disi..lagbe student_details id-->
                             <i class="fa fa-user"> </i> View Profile
