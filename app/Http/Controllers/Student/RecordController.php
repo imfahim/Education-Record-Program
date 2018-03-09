@@ -12,9 +12,10 @@ class RecordController extends Controller
      *
      * @return \Illuminate\Http\Response
      */
-    public function iep()
+    public function iep($id)
     {
-        return view('student.records.iep');
+        dd($id);
+        return view('student.records.iep')->withId($id);
     }
 
     /**

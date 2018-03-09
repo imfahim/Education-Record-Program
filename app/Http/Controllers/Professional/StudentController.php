@@ -16,8 +16,30 @@ class StudentController extends Controller
       return view('professional.student.index')->withStudents($students);
     }
 
-    public function iep_report(){
-      return view('professional.student.iep');
+    public function iep_report($id){
+      //$reports=DB::table()
+      return view('professional.student.iep')->withId($id);
+    }
+    public function iep_post(Request $request){
+      $flag=DB::table('report')->insert([
+        'student_id'=>$request->stu_id,
+        'professional_id'=>Session::get('id'),
+        'month' =>$request->month,
+        'skill_area'=>$request->int_sk,
+        'present_level'=>$request->present_level,
+        'goal'=>$request->goal,
+        'strategy'=>$request->strategy,
+        'remarks'=>$request->remarks,
+      ]);
+
+      if($flag){
+        Session::put('success','Report Submitted');
+      }
+      else{
+        Session::put('fail','submission Fail');
+      }
+
+      return redirect()->route('professional.student.iep',[$request->stu_id]);
     }
 
     public function search(Request $request){

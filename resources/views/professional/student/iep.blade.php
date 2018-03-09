@@ -60,62 +60,16 @@
                                   </p>
                                 </div>
                               </li>
-                              <li>
-                                <img src="{{asset('images/img.jpg')}}" class="avatar" alt="Avatar">
-                                <div class="message_date">
-                                  <h3 class="date text-error">21</h3>
-                                  <p class="month">May</p>
-                                </div>
-                                <div class="message_wrapper">
-                                  <h4 class="heading">Brian Michaels</h4>
-                                  <blockquote class="message">Raw denim you probably haven't heard of them jean shorts Austin. Nesciunt tofu stumptown aliqua butcher retro keffiyeh dreamcatcher synth.</blockquote>
-                                  <br />
-                                  <p class="url">
-                                    <span class="fs1" aria-hidden="true" data-icon=""></span>
-                                    <a href="#" data-original-title="">Download</a>
-                                  </p>
-                                </div>
-                              </li>
-                              <li>
-                                <img src="{{asset('images/img.jpg')}}" class="avatar" alt="Avatar">
-                                <div class="message_date">
-                                  <h3 class="date text-info">24</h3>
-                                  <p class="month">May</p>
-                                </div>
-                                <div class="message_wrapper">
-                                  <h4 class="heading">Desmond Davison</h4>
-                                  <blockquote class="message">Raw denim you probably haven't heard of them jean shorts Austin. Nesciunt tofu stumptown aliqua butcher retro keffiyeh dreamcatcher synth.</blockquote>
-                                  <br />
-                                  <p class="url">
-                                    <span class="fs1 text-info" aria-hidden="true" data-icon=""></span>
-                                    <a href="#"><i class="fa fa-paperclip"></i> User Acceptance Test.doc </a>
-                                  </p>
-                                </div>
-                              </li>
-                              <li>
-                                <img src="{{asset('images/img.jpg')}}" class="avatar" alt="Avatar">
-                                <div class="message_date">
-                                  <h3 class="date text-error">21</h3>
-                                  <p class="month">May</p>
-                                </div>
-                                <div class="message_wrapper">
-                                  <h4 class="heading">Brian Michaels</h4>
-                                  <blockquote class="message">Raw denim you probably haven't heard of them jean shorts Austin. Nesciunt tofu stumptown aliqua butcher retro keffiyeh dreamcatcher synth.</blockquote>
-                                  <br />
-                                  <p class="url">
-                                    <span class="fs1" aria-hidden="true" data-icon=""></span>
-                                    <a href="#" data-original-title="">Download</a>
-                                  </p>
-                                </div>
-                              </li>
-
                             </ul>
                             <!-- end recent activity -->
-
                           </div>
                           <div role="tabpanel" class="tab-pane fade" id="tab_content2" aria-labelledby="profile-tab" style="overflow-x: auto;">
 
+
                             <!-- start user projects -->
+                            <form method="POST" action="{{route('professional.student.iep.post')}}">
+                              {{csrf_field()}}
+                              <input type="hidden" name="stu_id" value="{{$id}}">
                             <table class="data table table-striped no-margin">
                               <thead>
                                 <tr>
@@ -150,35 +104,36 @@
                                   <td><div class="item form-group">
                                     <div class="col-md-6 col-sm-6 col-xs-12">
                                       <select class="form-control col-md-7 col-xs-12" style="width: 170px;" name="int_sk">
-                                        <option value="beh_ther">Behaviour Therapy</option>
-                                        <option value="phy_ther">Physio Therapy</option>
-                                        <option value="spe_ther">Speech Therapy</option>
+                                        <option value="Behaviour Therapy">Behaviour Therapy</option>
+                                        <option value="Physio Therapy">Physio Therapy</option>
+                                        <option value="Speech Therapy">Speech Therapy</option>
                                         <option disabled>---Special Educator---</option>
-                                        <option value="sk_comp">Computer</option>
-                                        <option value="sk_eng">English</option>
-                                        <option value="sk_hin">Hindi</option>
-                                        <option value="sk_mcom">Mass Communication</option>
-                                        <option value="sk_hsci">Home Science</option>
-                                        <option value="sk_perg">Personal Grooming</option>
-                                        <option value="sk_hmang">Home Management</option>
-                                        <option value="sk_persafe">Personal Safety</option>
-                                        <option value="voc_3d">3D Sublimation</option>
-                                        <option value="voc_sskill">Social Skill</option>
-                                        <option value="voc_comm">Communication Skill</option>
+                                        <option value="Computer">Computer</option>
+                                        <option value="English">English</option>
+                                        <option value="Hindi">Hindi</option>
+                                        <option value="Mass Communication">Mass Communication</option>
+                                        <option value="Home Science">Home Science</option>
+                                        <option value="Personal Grooming">Personal Grooming</option>
+                                        <option value="Home Management">Home Management</option>
+                                        <option value="Personal Safety">Personal Safety</option>
+                                        <option value="3D Sublimation">3D Sublimation</option>
+                                        <option value="Social Skill">Social Skill</option>
+                                        <option value="Communication Skill">Communication Skill</option>
                                       </select>
                                     </div>
                                   </div></td>
                                   <td><textarea id="present_level" required="required" class="form-control" name="present_level" style="width:150px; height:200px"></textarea></td>
                                   <td><textarea id="goal" required="required" class="form-control" name="goal" style="width:150px; height:200px"></textarea></td>
-                                  <td><textarea id="goal" required="required" class="form-control" name="goal" style="width:150px; height:200px"></textarea></td>
-                                  <td><textarea id="goal" required="required" class="form-control" name="goal" style="width:150px; height:200px"></textarea></td>
+                                  <td><textarea id="goal" required="required" class="form-control" name="strategy" style="width:150px; height:200px"></textarea></td>
+                                  <td><textarea id="goal" required="required" class="form-control" name="remarks" style="width:150px; height:200px"></textarea></td>
 
                                 </tr>
                               </tbody>
                             </table>
                             <div class="pull-right">
-                            <button type="button" class="btn btn-round btn-success">Submit</button>
+                            <button type="submit" class="btn btn-round btn-success">Submit</button>
                             <button type="button" class="btn btn-round btn-primary">Add Skill</button>
+                            <form>
                           </div>
                         </div>
 

@@ -82,7 +82,7 @@
                             <a href="{{ route('centre.student.show', [$student->id]) }}" class="btn btn-primary btn-xs"><i class="fa fa-folder"></i> View</a>
                           </div>
                           <div class="col-md-3">
-                            <a href="{{route('student.record.iep')}}" class="btn btn-info btn-xs"><i class="fa fa-pencil"></i> IEP </a>
+                            <a href="{{route('student.record.iep',[$student->id])}}" class="btn btn-info btn-xs"><i class="fa fa-pencil"></i> IEP </a>
                           </div>
                           <div class="col-md-4">
                             @if($student->student->status === 0)

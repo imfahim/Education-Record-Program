@@ -41,7 +41,8 @@ Route::post('/professional/auth', 'Professional\LoginController@authenticate')->
 Route::get('/professional/students','Professional\StudentController@index')->name('professional.student.index');
 Route::post('/professional/students/search','Professional\StudentController@search')->name('professional.student.search');
 Route::post('/professional/students/request','Professional\StudentController@req')->name('professional.student.request');
-Route::get('/professional/student/iep', 'Professional\StudentController@iep_report')->name('professional.student.iep');
+Route::get('/professional/student/iep/{id}', 'Professional\StudentController@iep_report')->name('professional.student.iep');
+Route::post('/professiona/student/iep/post','Professional\StudentController@iep_post')->name('professional.student.iep.post');
 
 
 
@@ -75,8 +76,8 @@ Route::group(['prefix' => 'student'], function(){
 });
 
 
-//Student
-Route::get('/student/iep', 'Student\RecordController@iep')->name('student.record.iep');
+//Student`
+Route::get('/student/iep/{id}', 'Student\RecordController@iep')->name('student.record.iep');
 Route::get('/student/profile', 'Student\ProfileController@index')->name('student.profile');
 
 
