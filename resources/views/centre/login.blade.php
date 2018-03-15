@@ -30,7 +30,7 @@
 
       <div class="login_wrapper">
         <div class="animate form login_form">
-          <img src="{{ asset('images/logo-grid.jpg') }}" class="img-thumbnail" alt="Logo">
+          <img src="{{ asset('images/logo-grid.png') }}" class="img-thumbnail" alt="Logo">
           <section class="login_content">
             <form action="{{ route('centre.authenticate') }}" method="POST">
               {{ csrf_field() }}
