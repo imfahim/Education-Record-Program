@@ -7,18 +7,25 @@ use App\Http\Controllers\Controller;
 use Illuminate\Support\Facades\DB;
 use Session;
 
+use App\StudentDetail;
+
 class StudentController extends Controller
 {
     //
     public function index(){
-      $students =DB::table('student_details')->join('students','student_details.student_id','=','students.id')->join('rel_students_professionals','student_details.student_id','=','rel_students_professionals.student_id')->where('rel_students_professionals.professional_id','=',Session::get('id'))->get();
+      $students = StudentDetail::with('student')->get();
+
+      $professionals = DB::table('rel_students_professionals')->join('professional_details','rel_students_professionals.professional_id','=','professional_details.prof_id')->get();
+      //$students =DB::table('student_details')->join('students','student_details.student_id','=','students.id')->join('rel_students_professionals','student_details.student_id','=','rel_students_professionals.student_id')->where('rel_students_professionals.professional_id','=',Session::get('id'))->get();
       //dd($students);
-      return view('professional.student.index')->withStudents($students);
+      //return view('professional.student.index')->withStudents($students);
+      return view('professional.student.index')->with('students', $students)->withProfs($professionals);
     }
 
     public function iep_report($id){
+      $student = StudentDetail::with('student')->where('student_id', $id)->first(['firstname', 'lastname']);
       //$reports=DB::table()
-      return view('professional.student.iep')->withId($id);
+      return view('professional.student.iep')->withId($id)->with('student', $student);
     }
     public function iep_post(Request $request){
       $flag=DB::table('report')->insert([
@@ -58,5 +65,27 @@ class StudentController extends Controller
 
       return redirect()->route('professional.student.index');
 
+    }
+
+    public function centre_students_index(){
+      $students = DB::table('rel_students_professionals')
+        ->join('student_details', 'rel_students_professionals.student_id', '=', 'student_details.student_id')
+        ->join('centres', 'student_details.added_by', '=', 'centres.centre_id')
+        ->where('rel_students_professionals.professional_id', Session::get('id'))
+        ->get(['student_details.id as id', 'student_details.student_id as student_id', 'firstname', 'lastname', 'student_details.created_at', 'centre_name']);
+
+        //dd(Session::get('id'));
+        //dd($students);
+      return view('professional.student.centre.index')->with('students', $students);
+    }
+
+    public function personal_students_index(){
+        $students = DB::table('rel_students_professionals')
+          ->join('student_details', 'rel_students_professionals.student_id', '=', 'student_details.student_id')
+          ->join('professionals', 'student_details.added_by', '=', 'professionals.id')
+          ->where('rel_students_professionals.professional_id', Session::get('id'))
+          ->get(['student_details.id as id', 'student_details.student_id as student_id', 'firstname', 'lastname', 'student_details.created_at']);
+
+        return view('professional.student.personal.index')->with('students', $students);
     }
 }

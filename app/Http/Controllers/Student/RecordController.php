@@ -14,7 +14,7 @@ class RecordController extends Controller
      */
     public function iep($id)
     {
-        dd($id);
+        //dd($id);
         return view('student.records.iep')->withId($id);
     }
 

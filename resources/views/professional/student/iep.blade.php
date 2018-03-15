@@ -19,7 +19,7 @@
               <div class="col-md-12 col-sm-12 col-xs-12">
                 <div class="x_panel">
                   <div class="x_title">
-                    <h2>Student Name</h2>
+                    <h2>{{ $student->firstname }} {{ $student->lastname }}</h2>
                     <ul class="nav navbar-right panel_toolbox">
                       <li><img src="{{asset('images/img.jpg')}}" class="avatar" alt="Avatar" style="width:100px; height:auto;">
                       </li>
@@ -34,39 +34,14 @@
 
                       <div class="" role="tabpanel" data-example-id="togglable-tabs">
                         <ul id="myTab" class="nav nav-tabs bar_tabs" role="tablist">
-                          <li role="presentation" class="active"><a href="#tab_content1" id="previous" role="tab" data-toggle="tab" aria-expanded="true">Previous Reports</a>
+                          <li role="presentation" class="active"><a href="#tab_content1" id="previous" role="tab" data-toggle="tab" aria-expanded="true">Add New Report</a>
                           </li>
-                          <li role="presentation" class=""><a href="#tab_content2" role="tab" id="new" data-toggle="tab" aria-expanded="false">Add New Report</a>
-                          </li>
+                          <!-- <li role="presentation" class=""><a href="#tab_content2" role="tab" id="new" data-toggle="tab" aria-expanded="false">Add New Report</a>
+                          </li> -->
                         </ul>
                         <div id="myTabContent" class="tab-content">
                           <div role="tabpanel" class="tab-pane fade active in" id="tab_content1" aria-labelledby="home-tab">
 
-                            <!-- start recent activity -->
-                            <ul class="messages">
-                              <li>
-                                <img src="{{asset('images/img.jpg')}}" class="avatar" alt="Avatar">
-                                <div class="message_date">
-                                  <h3 class="date text-info">24</h3>
-                                  <p class="month">May</p>
-                                </div>
-                                <div class="message_wrapper">
-                                  <h4 class="heading">Desmond Davison</h4>
-                                  <blockquote class="message">Raw denim you probably haven't heard of them jean shorts Austin. Nesciunt tofu stumptown aliqua butcher retro keffiyeh dreamcatcher synth.</blockquote>
-                                  <br />
-                                  <p class="url">
-                                    <span class="fs1 text-info" aria-hidden="true" data-icon=""></span>
-                                    <a href="#"><i class="fa fa-paperclip"></i> User Acceptance Test.doc </a>
-                                  </p>
-                                </div>
-                              </li>
-                            </ul>
-                            <!-- end recent activity -->
-                          </div>
-                          <div role="tabpanel" class="tab-pane fade" id="tab_content2" aria-labelledby="profile-tab" style="overflow-x: auto;">
-
-
-                            <!-- start user projects -->
                             <form method="POST" action="{{route('professional.student.iep.post')}}">
                               {{csrf_field()}}
                               <input type="hidden" name="stu_id" value="{{$id}}">
@@ -134,6 +109,24 @@
                             <button type="submit" class="btn btn-round btn-success">Submit</button>
                             <button type="button" class="btn btn-round btn-primary">Add Skill</button>
                             <form>
+                            <!-- <ul class="messages">
+                              <li>
+                                <img src="{{asset('images/img.jpg')}}" class="avatar" alt="Avatar">
+                                <div class="message_date">
+                                  <h3 class="date text-info">24</h3>
+                                  <p class="month">May</p>
+                                </div>
+                                <div class="message_wrapper">
+                                  <h4 class="heading">Desmond Davison</h4>
+                                  <blockquote class="message">Raw denim you probably haven't heard of them jean shorts Austin. Nesciunt tofu stumptown aliqua butcher retro keffiyeh dreamcatcher synth.</blockquote>
+                                  <br />
+                                  <p class="url">
+                                    <span class="fs1 text-info" aria-hidden="true" data-icon=""></span>
+                                    <a href="#"><i class="fa fa-paperclip"></i> User Acceptance Test.doc </a>
+                                  </p>
+                                </div>
+                              </li>
+                            </ul> -->
                           </div>
                         </div>
 

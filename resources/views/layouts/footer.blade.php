@@ -1,7 +1,7 @@
 <!-- footer content -->
 <footer>
   <div class="pull-right">
-    Gentelella - Bootstrap Admin Template by <a href="https://colorlib.com">Colorlib</a>
+    &copy;2018 All Rights Reserved. IEP Tool v1.0
   </div>
   <div class="clearfix"></div>
 </footer>

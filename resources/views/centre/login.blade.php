@@ -30,10 +30,11 @@
 
       <div class="login_wrapper">
         <div class="animate form login_form">
+          <img src="{{ asset('images/logo-grid.jpg') }}" class="img-thumbnail" alt="Logo">
           <section class="login_content">
             <form action="{{ route('centre.authenticate') }}" method="POST">
               {{ csrf_field() }}
-              <h1>Login Form</h1>
+              <h1>Centre Login Form</h1>
               <div>
                 <input type="email" class="form-control" placeholder="Username" name="centre_email" required="" />
               </div>
@@ -49,14 +50,13 @@
 
               <div class="separator">
                 <p class="change_link">New to site?
-                  <a href="#signup" class="to_register"> Request Account </a>
+                  <a href="#signup" class="to_register"> <strong>Request Account</strong> </a>
                 </p>
 
                 <div class="clearfix"></div>
                 <br />
 
                 <div>
-                  <h1><i class="fa fa-paw"></i> IEP</h1>
                   <p>©2018 All Rights Reserved. Privacy and Terms</p>
                 </div>
               </div>
@@ -65,10 +65,13 @@
         </div>
 
         <div id="register" class="animate form registration_form">
+          <img src="{{ asset('images/logo-grid.jpg') }}" class="img-thumbnail" alt="Logo">
           <section class="login_content">
             <form method="POST" action="{{ route('centre.request.account.send') }}">
               {{ csrf_field() }}
               <h1>Request Account</h1>
+              <h5>Interested in implementing the solution of your school/centre/outreach ?</h5>
+              <h5>Fill in the details and hit request !</h5>
               <div>
                 <input type="text" class="form-control" placeholder="Name" name="name" required="" />
               </div>
@@ -93,7 +96,7 @@
                 <input type="text" class="form-control" placeholder="Address" name="address" required="" />
               </div>
               <div>
-                <input type="submit" class="btn btn-default submit" value="Submit" />
+                <input type="submit" class="btn btn-default submit" value="Request" />
               </div>
 
               <div class="clearfix"></div>
@@ -107,7 +110,6 @@
                 <br />
 
                 <div>
-                  <h1><i class="fa fa-paw"></i> IEP</h1>
                   <p>©2018 All Rights Reserved. Privacy and Terms</p>
                 </div>
               </div>

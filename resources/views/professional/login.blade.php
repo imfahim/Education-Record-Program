@@ -30,6 +30,7 @@
 
       <div class="login_wrapper">
         <div class="animate form login_form">
+          <img src="{{ asset('images/logo-grid.jpg') }}" class="img-thumbnail" alt="Logo">
           <section class="login_content">
             <form action="{{ route('professional.authenticate') }}" method="POST">
               {{ csrf_field() }}
@@ -56,7 +57,6 @@
                 <br />
 
                 <div>
-                  <h1><i class="fa fa-paw"></i> IEP</h1>
                   <p>©2018 All Rights Reserved. Privacy and Terms</p>
                 </div>
               </div>
@@ -65,6 +65,7 @@
         </div>
 
         <div id="register" class="animate form registration_form">
+          <img src="{{ asset('images/logo-grid.jpg') }}" class="img-thumbnail" alt="Logo">
           <section class="login_content">
             <form method="POST" action="{{ route('centre.request.account.send') }}">
               {{ csrf_field() }}
@@ -93,7 +94,7 @@
                 <input type="text" class="form-control" placeholder="Address" name="address" required="" />
               </div>
               <div>
-                <input type="submit" class="btn btn-default submit" value="Submit" />
+                <input type="submit" class="btn btn-default submit" value="Request" />
               </div>
 
               <div class="clearfix"></div>
@@ -107,7 +108,6 @@
                 <br />
 
                 <div>
-                  <h1><i class="fa fa-paw"></i> IEP</h1>
                   <p>©2018 All Rights Reserved. Privacy and Terms</p>
                 </div>
               </div>

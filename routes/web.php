@@ -11,17 +11,25 @@
 |
 */
 
-Route::get('/', function () {
-    return view('master.index');
+
+
+Route::get('/', function() {
+  return view('welcome');
 });
 
 
-Route::get('/master/centre/index','Master\CentreController@index')->name('master.centre.index');
-Route::get('/master/centre/create','Master\CentreController@create')->name('master.centre.create');
-Route::delete('/master/centre/delete','Master\CentreController@delete')->name('master.centre.delete');
-Route::post('/master/centre/create','Master\CentreController@store');
 
+/*
+* For Master-end - Every Master view routes goes here
+*/
+Route::group(['prefix' => 'master', 'middleware' => 'auth'], function(){
+  Route::get('/', 'Master\HomeController@index')->name('master.index');
+  Route::get('centre/index','Master\CentreController@index')->name('master.centre.index');
+  Route::get('centre/create','Master\CentreController@create')->name('master.centre.create');
+  Route::delete('centre/delete','Master\CentreController@delete')->name('master.centre.delete');
+  Route::post('centre/create','Master\CentreController@store');
 
+});
 
 
 Route::get('/centre/professional/index','Centre\ProfessionalController@index')->name('centre.professional.index');
@@ -42,7 +50,10 @@ Route::get('/professional/students','Professional\StudentController@index')->nam
 Route::post('/professional/students/search','Professional\StudentController@search')->name('professional.student.search');
 Route::post('/professional/students/request','Professional\StudentController@req')->name('professional.student.request');
 Route::get('/professional/student/iep/{id}', 'Professional\StudentController@iep_report')->name('professional.student.iep');
-Route::post('/professiona/student/iep/post','Professional\StudentController@iep_post')->name('professional.student.iep.post');
+Route::post('/professional/student/iep/post','Professional\StudentController@iep_post')->name('professional.student.iep.post');
+
+Route::get('/professional/students/centre', 'Professional\StudentController@centre_students_index')->name('professional.students.centre.index');
+Route::get('/professional/students/personal', 'Professional\StudentController@personal_students_index')->name('professional.students.personal.index');
 
 
 

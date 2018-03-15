@@ -6,21 +6,29 @@
                 <ul class="nav side-menu">
 
                   @if(Session::get('type')=='master')
-                  <li><a href="/"><i class="fa fa-home"></i> Home <!--<span class="fa fa-chevron-down">--></span></a>
+                  <!--<li><a href="/"><i class="fa fa-home"></i> Home <!-<span class="fa fa-chevron-down">-</span></a>-->
                   </li>
                   <li><a href="{{route('master.centre.index')}}"><i class="fa fa-building-o"></i>Centres</a>
                   </li>
                   @endif
-                  <li><a href="/"><i class="fa fa-home"></i> Home <!--<span class="fa fa-chevron-down">--></span></a>
+                  @if(Session::get('type') == 'centre')
+                  <!--<li><a href="/"><i class="fa fa-home"></i> Home <!-<span class="fa fa-chevron-down">-</span></a>-->
                   </li>
                   <li><a href="{{route('centre.student.index')}}"><i class="fa fa-graduation-cap"></i>Students</a>
                   </li>
                   <li><a href="{{route('centre.professional.index')}}"><i class="fa fa-users"> </i>Professionals</a>
                   </li>
+                  @endif
                   @if(Session::get('type')=='professional')
-                  <li><a href="/"><i class="fa fa-home"></i> Home <!--<span class="fa fa-chevron-down">--></span></a>
+                  <!--<li><a href="/"><i class="fa fa-home"></i> Home <!-<span class="fa fa-chevron-down">-</span></a>-->
                   </li>
-                  <li><a href="{{route('professional.student.index')}}"><i class="fa fa-graduation-cap"></i>Students</a>
+                  <!--<li><a href="{{route('professional.student.index')}}"><i class="fa fa-graduation-cap"></i>Students</a>-->
+                  </li>
+                  <li><a href="{{route('professional.student.index')}}"><i class="fa fa-graduation-cap"></i> Students</a>
+                    <ul class="nav child_menu" style="display: block;">
+                      <li><a href="{{ route('professional.students.centre.index') }}">Centre Students</a></li>
+                      <li><a href="{{ route('professional.students.personal.index') }}">Personal Students</a></li>
+                    </ul>
                   </li>
                   @endif
 
@@ -117,7 +125,19 @@
                                           </a>
                                         </li>
                                         <li><a href="javascript:;">Help</a></li>
-                                        <li><a href="login.html"><i class="fa fa-sign-out pull-right"></i> Log Out</a></li>
+                                        <li>
+                                          <a href="{{ route('logout') }}"
+                                              onclick="event.preventDefault();
+                                                       document.getElementById('logout-form').submit();">
+                                                       <i class="fa fa-sign-out pull-right"></i>
+                                              Log Out
+                                          </a>
+
+                                          <form id="logout-form" action="{{ route('logout') }}" method="POST" style="display: none;">
+                                              {{ csrf_field() }}
+                                          </form>
+
+                                        </li>
                                       </ul>
                                     </li>
 

@@ -13,6 +13,7 @@
           </form>
 
           <!-- top tiles -->
+          <!--
           <div class="row tile_count">
             <div class="col-md-2 col-sm-4 col-xs-6 tile_stats_count">
               <span class="count_top"><i class="fa fa-user"></i> Total Users</span>
@@ -45,7 +46,7 @@
               <span class="count_bottom"><i class="green"><i class="fa fa-sort-asc"></i>34% </i> From last Week</span>
             </div>
           </div>
-          <!-- /top tiles -->
+          <!- /top tiles -
 
           <div class="row">
             <div class="col-md-12 col-sm-12 col-xs-12">
@@ -522,7 +523,7 @@
               <div class="row">
 
 
-                <!-- Start to do list -->
+                <!- Start to do list -
                 <div class="col-md-6 col-sm-6 col-xs-12">
                   <div class="x_panel">
                     <div class="x_title">
@@ -589,9 +590,9 @@
                     </div>
                   </div>
                 </div>
-                <!-- End to do list -->
+                <!- End to do list -
 
-                <!-- start of weather widget -->
+                <!- start of weather widget -
                 <div class="col-md-6 col-sm-6 col-xs-12">
                   <div class="x_panel">
                     <div class="x_title">
@@ -697,10 +698,10 @@
                   </div>
 
                 </div>
-                <!-- end of weather widget -->
+                <!- end of weather widget -
               </div>
             </div>
-          </div>
+          </div> -->
         </div>
         <!-- /page content -->
 
