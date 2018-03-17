@@ -23,7 +23,7 @@ class StudentController extends Controller
     public function index()
     {
         //$students = StudentDetail::with('student')->with('centre')->get();
-        $students = StudentDetail::with('student')->get();
+        $students = StudentDetail::with('student')->where('added_by', Session::get('logged_in'))->get();
 
         $professionals = DB::table('rel_students_professionals')->join('professional_details','rel_students_professionals.professional_id','=','professional_details.prof_id')->get();
         //dd($professionals);

@@ -67,7 +67,7 @@
                             </ul>
                           </td>
                           <td>
-                            <form method="POST" action="{{route('student.record.iep',[$student->id])}}">
+                            <form method="POST" action="{{route('student.report.show',[$student->student_id])}}">
                               {{ csrf_field() }}
                               <input type="hidden" name="id" value="{{ $student->id }}" />
                               <div class="col-md-6">

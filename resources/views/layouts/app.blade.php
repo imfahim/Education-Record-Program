@@ -12,6 +12,8 @@
 
     <!-- Styles -->
     <link href="{{ asset('css/app.css') }}" rel="stylesheet">
+    <!-- Bootstrap -->
+    <link href="{{asset('vendors/bootstrap/dist/css/bootstrap.min.css')}}" rel="stylesheet">
 </head>
 <body>
     <div id="app">
@@ -29,7 +31,9 @@
 
                     <!-- Branding Image -->
                     <a class="navbar-brand" href="{{ url('/') }}">
-                        {{ config('app.name', 'Laravel') }}
+                      <div class="col-md-4">
+                        <img src="{{ asset('images/logo-dashboard.png') }}" class="img-responsive" alt="Logo">
+                      </div>
                     </a>
                 </div>
 

@@ -66,13 +66,13 @@ Route::get('/home', 'HomeController@index')->name('home');
 /*
 * For Centre-end - Every Centre view routes goes here
 */
+Route::get('centre/login', 'Centre\LoginController@index')->name('centre.login');
+Route::post('centre/login', 'Centre\LoginController@authenticate')->name('centre.authenticate');
+
+Route::post('request/account', 'Centre\RequestController@account')->name('centre.request.account.send');
+
 Route::group(['prefix' => 'centre', 'middleware' => 'centre_auth'], function(){
   Route::get('/', 'Centre\HomeController@index')->name('centre.index');
-  Route::get('login', 'Centre\LoginController@index')->name('centre.login');
-  Route::post('login', 'Centre\LoginController@authenticate')->name('centre.authenticate');
-
-  Route::post('request/account', 'Centre\RequestController@account')->name('centre.request.account.send');
-
   Route::resource('student', 'Centre\StudentController', ['as' => 'centre']);
 
   // Tor routes goes here
@@ -92,6 +92,9 @@ Route::get('/student/iep/{id}', 'Student\RecordController@iep')->name('student.r
 Route::get('/student/profile', 'Student\ProfileController@index')->name('student.profile');
 
 
-Route::get('/professional/profile', function () {
-    return view('professional.profile');
-});
+Route::get('/professional/profile/{id}', 'Common\CommonController@professional_profile_show')->name('professional.profile.show');
+Route::get('/professional/profile/{id}/edit', 'Professional\ProfileController@edit')->name('professional.profile.edit');
+
+
+Route::post('/iep/report/{id}', 'Common\ReportController@index')->name('student.report.show');
+//Route::post('/iep/report/{id}', 'Common\ReportController@')

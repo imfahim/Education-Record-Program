@@ -41,11 +41,14 @@ class LoginController extends Controller
 
     public function authenticate(Request $request){
       $prof=DB::table('professionals')->where('email',$request->email)->where('password',$request->password)->where('status',0)->first();
+      $name = DB::table('professional_details')->where('prof_id', $prof->id)->first(['fname', 'lname']);
+      $fullname = $name->fname.' '.$name->lname;
 
       if($prof){
         Session::put('success','Logged In Successfully');
         Session::put('type','professional');
         Session::put('id',$prof->id);
+        Session::put('name', $fullname);
         //dd(Session::get('type'));
         return redirect()->route('professional.index');
       }

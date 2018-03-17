@@ -5,7 +5,7 @@ namespace App\Http\Middleware;
 use Closure;
 use Session;
 
-class CentreMiddleware
+class ProfessionalMiddleware
 {
     /**
      * Handle an incoming request.
@@ -16,16 +16,14 @@ class CentreMiddleware
      */
     public function handle($request, Closure $next)
     {
-        // type check centre ki na and also logged in or not
-        if(!Session::has('logged_in')){
-          return redirect()->route('centre.login');
+        // type check and let them in and logged in or not
+        if(!Session::has('id')){
+          return redirect()->route('professional.login');
         }
-        
-        if(Session::get('type') !== 'centre'){
+        if(Session::get('type') !== 'professional'){
           Session::flash('fail', 'Permission Denied !');
           return redirect()->back();
         }
-
         return $next($request);
     }
 }

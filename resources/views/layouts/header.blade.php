@@ -7,7 +7,7 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1">
 
-    <title>IEP | </title>
+    <title>Spethe IEP | </title>
 
     <!-- Bootstrap -->
     <link href="{{asset('vendors/bootstrap/dist/css/bootstrap.min.css')}}" rel="stylesheet">
@@ -64,7 +64,7 @@
                 </div>
                 <div class="profile_info">
                   <span>Welcome,</span>
-                  <h2>John Doe</h2>
+                  <h2>{{ Session::get('name') }}</h2>
                 </div>
               </div>
               <!-- /menu profile quick info -->

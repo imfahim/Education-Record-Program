@@ -42,11 +42,9 @@ hr {
                     <div class="clearfix"></div>
                   </div>
                   <div class="x_content">
-                    @if(Session::get('id') === $professional->prof_id)
                     <div class="pull-right">
-                      <a href="{{ route('professional.profile.edit', [$professional->prof_id]) }}" class="btn btn-sm btn-warning">Update Profile</a>
+                      <a href="#" class="btn btn-sm btn-success">Save</a>
                     </div>
-                    @endif
                     <div class="col-md-3 col-sm-3 col-xs-12 profile_left">
                       <div class="profile_img">
                         <div id="crop-avatar">
@@ -68,7 +66,8 @@ hr {
                     <div class="col-md-9 col-sm-9 col-xs-12">
                       <div class="col-md-12">
                         <ul class="list-unstyled user_data">
-                        Centre: {{ $professional->centre_name }}
+                        Profession :
+                        <input type="text" class="form-control" name="profession" placeholder="Enter Profession" /> 
                       </ul>
 
                       </div>

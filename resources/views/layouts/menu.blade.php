@@ -113,30 +113,39 @@
                                   <ul class="nav navbar-nav navbar-right">
                                     <li class="">
                                       <a href="javascript:;" class="user-profile dropdown-toggle" data-toggle="dropdown" aria-expanded="false">
-                                        <img src="{{asset('images/img.jpg')}}" alt="">John Doe
+                                        <img src="{{asset('images/img.jpg')}}" alt="">{{ Session::get('name') }}
                                         <span class=" fa fa-angle-down"></span>
                                       </a>
                                       <ul class="dropdown-menu dropdown-usermenu pull-right">
-                                        <li><a href="javascript:;"> Profile</a></li>
+                                        @if(Session::get('type') === 'professional')
+                                        <li><a href="{{ route('professional.profile.show', [Session::get('id')]) }}"> Profile</a></li>
+                                        @endif
                                         <li>
-                                          <a href="javascript:;">
-                                            <span class="badge bg-red pull-right">50%</span>
-                                            <span>Settings</span>
-                                          </a>
-                                        </li>
-                                        <li><a href="javascript:;">Help</a></li>
-                                        <li>
-                                          <a href="{{ route('logout') }}"
-                                              onclick="event.preventDefault();
-                                                       document.getElementById('logout-form').submit();">
-                                                       <i class="fa fa-sign-out pull-right"></i>
-                                              Log Out
-                                          </a>
+                                          @if(Session::get('type') === 'master')
+                                            <a href="{{ route('logout') }}"
+                                                onclick="event.preventDefault();
+                                                         document.getElementById('logout-form').submit();">
+                                                         <i class="fa fa-sign-out pull-right"></i>
+                                                Log Out
+                                            </a>
 
-                                          <form id="logout-form" action="{{ route('logout') }}" method="POST" style="display: none;">
-                                              {{ csrf_field() }}
-                                          </form>
+                                            <form id="logout-form" action="{{ route('logout') }}" method="POST" style="display: none;">
+                                                {{ csrf_field() }}
+                                            </form>
+                                          @else
+                                            <!-- Logout Form -->
+                                            <a href="{{ route('global.logout') }}"
+                                                onclick="event.preventDefault();
+                                                         document.getElementById('global-logout-form').submit();">
+                                                         <i class="fa fa-sign-out pull-right"></i>
+                                                Log Out
+                                            </a>
 
+                                            <form id="global-logout-form" action="{{ route('global.logout') }}" method="POST" style="display: none;">
+                                                {{ csrf_field() }}
+                                                <input type="hidden" name="type" value="{{ Session::get('type') }}" />
+                                            </form>
+                                          @endif
                                         </li>
                                       </ul>
                                     </li>

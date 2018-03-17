@@ -1,16 +1,22 @@
 @extends('layouts.main')
 
+@section('page-styles')
+
+@endsection
+
 @section('content')
 
         <!-- page content -->
         <div class="right_col" role="main">
 
-          <!-- Logout Form -->
+
+          <!-- Logout Form
           <form method="POST" action="{{ route('global.logout') }}">
             {{ csrf_field() }}
             <input type="hidden" name="type" value="{{ Session::get('type') }}" />
             <input type="submit" class="btn btn-danger" value="logout" />
           </form>
+          -->
 
           <!-- top tiles -->
           <!--
@@ -702,6 +708,20 @@
               </div>
             </div>
           </div> -->
+
+          <div class="container" style="margin-top: 300px;">
+            <div class="row vertical-center-row">
+              <div class="text-center col-md-12">
+                <h1>Welcome to your Spethe Dashboard !</h1>
+                <a href="{{ route('centre.student.index') }}" class="btn btn-lg btn-primary">Student List</a>
+                <a href="{{ route('centre.professional.index') }}" class="btn btn-lg btn-primary">Professional List</a>
+              </div>
+            </div>
+          </div>
+
+
+
+
         </div>
         <!-- /page content -->
 

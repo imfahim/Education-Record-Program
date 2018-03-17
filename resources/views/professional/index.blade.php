@@ -107,6 +107,18 @@
               </div>
             </div>
           </div> -->
+
+          <div class="container" style="margin-top: 300px;">
+            <div class="row vertical-center-row">
+              <div class="text-center col-md-12">
+                <h1>Welcome to your Spethe Dashboard !</h1>
+                <a href="{{ route('professional.student.index') }}" class="btn btn-lg btn-primary">Student List</a>
+                <a href="#" class="btn btn-lg btn-info">Update Profile</a>
+              </div>
+            </div>
+          </div>
+
+
         </div>
         <!-- /page content -->
 

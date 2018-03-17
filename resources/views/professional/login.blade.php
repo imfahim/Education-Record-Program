@@ -8,7 +8,7 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1">
 
-    <title>Centre Login | </title>
+    <title>Professional Login | </title>
 
     <!-- Bootstrap -->
     <link href="../vendors/bootstrap/dist/css/bootstrap.min.css" rel="stylesheet">
@@ -30,11 +30,11 @@
 
       <div class="login_wrapper">
         <div class="animate form login_form">
-          <img src="{{ asset('images/logo-grid.jpg') }}" class="img-thumbnail" alt="Logo">
+          <img src="{{ asset('images/logo-grid.png') }}" class="img-thumbnail" alt="Logo">
           <section class="login_content">
             <form action="{{ route('professional.authenticate') }}" method="POST">
               {{ csrf_field() }}
-              <h1>Login Form</h1>
+              <h1>Professional Login Form</h1>
               <div>
                 <input type="email" class="form-control" placeholder="Username" name="email" required="" />
               </div>
@@ -65,7 +65,7 @@
         </div>
 
         <div id="register" class="animate form registration_form">
-          <img src="{{ asset('images/logo-grid.jpg') }}" class="img-thumbnail" alt="Logo">
+          <img src="{{ asset('images/logo-grid.png') }}" class="img-thumbnail" alt="Logo">
           <section class="login_content">
             <form method="POST" action="{{ route('centre.request.account.send') }}">
               {{ csrf_field() }}

@@ -65,7 +65,7 @@
         </div>
 
         <div id="register" class="animate form registration_form">
-          <img src="{{ asset('images/logo-grid.jpg') }}" class="img-thumbnail" alt="Logo">
+          <img src="{{ asset('images/logo-grid.png') }}" class="img-thumbnail" alt="Logo">
           <section class="login_content">
             <form method="POST" action="{{ route('centre.request.account.send') }}">
               {{ csrf_field() }}

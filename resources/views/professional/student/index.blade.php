@@ -58,7 +58,7 @@
                             <small>Added On {{ $student->created_at }}</small>
                           </td>
                           <td>
-                            <form method="POST" action="{{route('student.record.iep',[$student->id])}}">
+                            <form method="POST" action="{{route('student.report.show',[$student->student_id])}}">
                               {{ csrf_field() }}
                               <input type="hidden" name="id" value="{{ $student->id }}" />
                               <div class="col-md-6">
@@ -86,7 +86,7 @@
                           <td>
                             <div class="row">
                               <div class="col-md-4">
-                                <a href="{{ route('centre.student.show', [$student->id]) }}" class="btn btn-info btn-xs"><i class="fa fa-user"></i> View Profile</a>
+                                <a href="{{ route('centre.student.show', [$student->student_id]) }}" class="btn btn-info btn-xs"><i class="fa fa-user"></i> View Profile</a>
                               </div>
                               <div class="col-md-4">
                                 <a href="{{route('professional.student.iep',[$student->student_id]) }}" class="btn btn-success btn-xs"><i class="fa fa-pencil"></i> Create IEP </a>
