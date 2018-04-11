@@ -16,6 +16,7 @@ class ProfessionalController extends Controller
 {
     //
     public function index(){
+      Session::forget('students');
       $professionals=DB::table('professionals')->join('professional_details','professionals.id','=','professional_details.prof_id')->get();
       return view('centre.professional.index')->withProfessionals($professionals);
     }
@@ -98,7 +99,7 @@ class ProfessionalController extends Controller
 
       // if accepted
       $exist=DB::table('rel_students_professionals')->where('professional_id',$prof_id)->where('student_id',$std_id)->first();
-      if(count($exist)){
+      if($exist){
         Session::flash('fail', 'Error Occured !');
       }
       else{

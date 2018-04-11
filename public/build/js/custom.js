@@ -2600,16 +2600,18 @@ if (typeof NProgress != 'undefined') {
 				Morris.Bar({
 				  element: 'graph_bar',
 				  data: [
-					{device: 'iPhone 4', geekbench: 380},
-					{device: 'iPhone 4S', geekbench: 655},
-					{device: 'iPhone 3GS', geekbench: 275},
-					{device: 'iPhone 5', geekbench: 1571},
-					{device: 'iPhone 5S', geekbench: 655},
-					{device: 'iPhone 6', geekbench: 2154},
-					{device: 'iPhone 6 Plus', geekbench: 1144},
-					{device: 'iPhone 6S', geekbench: 2371},
-					{device: 'iPhone 6S Plus', geekbench: 1471},
-					{device: 'Other', geekbench: 1371}
+					{device: 'January', geekbench: 0},
+					{device: 'February', geekbench: 0},
+					{device: 'March', geekbench: 275},
+					{device: 'April', geekbench: 1571},
+					{device: 'May', geekbench: 655},
+					{device: 'June', geekbench: 2154},
+					{device: 'July', geekbench: 1144},
+					{device: 'August', geekbench: 2371},
+					{device: 'September', geekbench: 1471},
+					{device: 'October', geekbench: 1371},
+          {device: 'November', geekbench: 1371},
+          {device: 'December', geekbench: 1371}
 				  ],
 				  xkey: 'device',
 				  ykeys: ['geekbench'],

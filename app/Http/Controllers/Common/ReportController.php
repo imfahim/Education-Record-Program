@@ -6,6 +6,8 @@ use Illuminate\Http\Request;
 use App\Http\Controllers\Controller;
 use Illuminate\Support\Facades\DB;
 
+use Session;
+
 class ReportController extends Controller
 {
     public function index(Request $request, $id)
@@ -24,10 +26,17 @@ class ReportController extends Controller
           ->where('report.month', $month)
           ->get();
 
+        if($reports){
+          return view('common.reports.index')
+            ->with('student', $student)
+            ->with('reports', $reports)
+            ->with('month', $month);
+        }else{
+          Session::flash('fail', 'No IEP Report Found !');
+          return redirect()->back();
+        }
+
         //dd($report);
-        return view('common.reports.index')
-          ->with('student', $student)
-          ->with('reports', $reports)
-          ->with('month', $month);
+
     }
 }

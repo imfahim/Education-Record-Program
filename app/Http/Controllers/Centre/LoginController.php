@@ -22,11 +22,13 @@ class LoginController extends Controller
         $this->validateLogin($request);
 
         if ($this->attemptLogin($request)) {
-            $request->session()->regenerate();
+            //$request->session()->regenerate();
 
+            Session::flash('success', 'Successfully Logged In !');
             return redirect()->route('centre.index');
         }
 
+        Session::flash('fail', 'Incorrect Credentials');
         return redirect()->route('centre.login');
     }
 

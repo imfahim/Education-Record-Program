@@ -50,6 +50,8 @@ class LoginController extends Controller
         Session::put('id',$prof->id);
         Session::put('name', $fullname);
         //dd(Session::get('type'));
+
+        Session::flash('success', 'Successfully Logged In !');
         return redirect()->route('professional.index');
       }
       else{

@@ -28,6 +28,9 @@
                 <div class="x_panel">
                   <div class="x_title">
                     <h2>Professionals <small>All Professionals at a glance !</small></h2>
+                    <div class="pull-right">
+                      <a href="{{ route('centre.professional.create') }}" class="btn btn-sm btn-primary">Add Professional</a>
+                    </div>
                     <div class="clearfix"></div>
                   </div>
                   <div class="x_content">
